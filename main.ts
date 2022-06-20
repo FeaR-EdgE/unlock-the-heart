@@ -1,7 +1,8 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`heart key`, function (sprite, location) {
-    game.over(true, effects.hearts)
+    tiles.placeOnTile(Bon, tiles.getTileLocation(0, 13))
 })
-let Bon = sprites.create(assets.image`Bon`, SpriteKind.Player)
+let Bon: Sprite = null
+Bon = sprites.create(assets.image`Bon`, SpriteKind.Player)
 Bon.setStayInScreen(true)
 scene.cameraFollowSprite(Bon)
 tiles.setCurrentTilemap(tilemap`level102`)
