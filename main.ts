@@ -4,16 +4,17 @@ scene.cameraFollowSprite(Bon)
 tiles.setCurrentTilemap(tilemap`level102`)
 tiles.placeOnTile(Bon, tiles.getTileLocation(0, 8))
 forever(function () {
-    Bon.setVelocity(0, 89)
+    Bon.setVelocity(0, 50)
     if (controller.left.isPressed()) {
-        Bon.x += -5
+        Bon.x += -3
     }
     if (controller.right.isPressed()) {
-        Bon.x += 5
+        Bon.x += 3
     }
+})
+forever(function () {
     if (controller.up.isPressed()) {
-        Bon.y += -5
-    } else {
-    	
+        Bon.y += -40
+        pause(1000)
     }
 })
