@@ -1,8 +1,9 @@
 let Bon = sprites.create(assets.image`Bon`, SpriteKind.Player)
-Bon.setVelocity(0, 10)
-scene.setBackgroundColor(15)
-tiles.setCurrentTilemap(tilemap`level2`)
+scene.cameraFollowSprite(Bon)
+tiles.setCurrentTilemap(tilemap`level102`)
+tiles.placeOnTile(Bon, tiles.getTileLocation(3, 8))
 forever(function () {
+    Bon.setVelocity(0, 89)
     if (controller.left.isPressed()) {
         Bon.x += -5
     }
