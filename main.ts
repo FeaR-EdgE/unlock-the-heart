@@ -16,8 +16,11 @@ scene.cameraFollowSprite(Don)
 tiles.setCurrentTilemap(tilemap`level102`)
 tiles.placeOnTile(Don, tiles.getTileLocation(0, 8))
 tiles.setTileAt(tiles.getTileLocation(15, 8), assets.tile`myTile10`)
-let IntroText = textsprite.create("This is Don and He is searching for keys to a secret Chamber")
+let IntroText = textsprite.create("Don is searching for keys to a Chamber")
 let DonAbility = textsprite.create("Don has the Ability to Teleport Jump")
+tiles.placeOnTile(IntroText, tiles.getTileLocation(9, 5))
+tiles.placeOnTile(DonAbility, tiles.getTileLocation(9, 4))
+let ScoreCount = textsprite.create(convertToText(0))
 forever(function () {
     Don.setVelocity(0, 50)
     if (controller.left.isPressed()) {
@@ -31,5 +34,14 @@ forever(function () {
     if (controller.up.isPressed()) {
         Don.y += -40
         pause(1000)
+    }
+})
+forever(function () {
+    for (let index = 0; index < 1; index++) {
+        if (controller.anyButton.isPressed()) {
+            pause(7000)
+            IntroText.destroy()
+            DonAbility.destroy()
+        }
     }
 })
