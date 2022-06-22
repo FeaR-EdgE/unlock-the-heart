@@ -23,18 +23,38 @@ function Jump_Movement () {
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
-    for (let index = 0; index < 1; index++) {
-        tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
-        tiles.setTileAt(tiles.getTileLocation(15, 14), assets.tile`Key2`)
-        Don.sayText("Continue the Search for Keys", 2000, false) , info.changeScoreBy (100)
-    }
+    tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
+    tiles.setTileAt(tiles.getTileLocation(15, 14), assets.tile`Key2`)
+    Don.sayText("Continue the Search for Keys", 2000, false) , info.changeScoreBy (100)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Key2`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
+    tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`Key3`)
+    Don.sayText("Avoid White Explosives", 3000, false)
+})
+function OnStart () {
+    ScoreCount = 0
+    Don = sprites.create(assets.image`Don`, SpriteKind.Player)
+    Don.setStayInScreen(true)
+    scene.cameraFollowSprite(Don)
+    tiles.setCurrentTilemap(tilemap`World102`)
+    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8))
+    tiles.setTileAt(tiles.getTileLocation(15, 8), assets.tile`Key1`)
+    IntroText = textsprite.create("Don is searching for keys to a Chamber")
+    tiles.placeOnTile(IntroText, tiles.getTileLocation(8, 5))
+    info.setScore(0)
+}
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(64, 7))
+    tiles.setTileAt(tiles.getTileLocation(81, 4), assets.tile`Key4`)
+    Don.sayText("Wake up to Reality, Nothing goes as planned in this acursed world", 5000, false)
+    info.changeScoreBy(100)
 })
 function IntroLetters () {
     for (let index = 0; index < 1; index++) {
         if (controller.anyButton.isPressed()) {
             pause(7000)
             IntroText.destroy()
-            DonAbility.destroy()
         }
     }
 }
@@ -42,29 +62,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, 
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)), info.changeScoreBy(-10)
 Don.sayText("Haha You Suck at This Game", 3000, false)
 })
-let DonAbility: TextSprite = null
 let IntroText: TextSprite = null
 let ScoreCount = 0
 let Don: Sprite = null
-let transitionToNextLevelThree = function (sprite:Sprite, location:tiles.Location) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
-    tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`Key3`)
-    Don.sayText("Avoid the White Explosives", 2000, false), info.changeScoreBy(100)
-}
-for (let index = 0; index < 1; index++) {
-    scene.onOverlapTile(SpriteKind.Player, assets.tile`Key2`, transitionToNextLevelThree )
-}
-Don = sprites.create(assets.image`Don`, SpriteKind.Player)
-Don.setStayInScreen(true)
-scene.cameraFollowSprite(Don)
-tiles.setCurrentTilemap(tilemap`World102`)
-tiles.placeOnTile(Don, tiles.getTileLocation(0, 8))
-tiles.setTileAt(tiles.getTileLocation(15, 8), assets.tile`Key1`)
-IntroText = textsprite.create("Don is searching for keys to a Chamber")
-DonAbility = textsprite.create("Don has the Ability to Teleport Jump")
-tiles.placeOnTile(IntroText, tiles.getTileLocation(8, 5))
-tiles.placeOnTile(DonAbility, tiles.getTileLocation(8, 4))
-info.setScore(0)
+OnStart()
 forever(function () {
     Movement()
 })
@@ -73,10 +74,4 @@ forever(function () {
 })
 forever(function () {
     Jump_Movement()
-})
-scene.onOverlapTile (SpriteKind.Player, assets.tile`Key3`, function(sprite, location) {
-    tiles.placeOnTile (Don, tiles.getTileLocation (64,7))
-    tiles.setTileAt (tiles.getTileLocation(81,4), assets.tile`Key4`)
-    Don.sayText ("Wake up to Reality, Nothing goes as planned in this acursed world", 5000, false)
-    info.changeScoreBy (100)
 })
