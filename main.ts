@@ -4,6 +4,7 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)) , info.changeScoreBy (-10)
 Don.sayText("Don't Touch That", 3000, false)
+    music.powerDown.play()
 })
 function Movement () {
     if (controller.left.isPressed()) {
@@ -22,10 +23,22 @@ function Jump_Movement () {
         Don.setVelocity(0, 100)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, location) {
+    info.changeScoreBy(100)
+    game.over(true, effects.confetti)
+    music.baDing.play()
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
+    tiles.placeOnTile (Don, tiles.getTileLocation (0,8)),
+    info.changeScoreBy (-10)
+Don.sayText("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 10000, false)
+    music.powerDown.play()
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
     tiles.setTileAt(tiles.getTileLocation(15, 14), assets.tile`Key2`)
     Don.sayText("Continue the Search for Keys", 2000, false) , info.changeScoreBy (100)
+music.baDing.play()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key2`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
@@ -49,6 +62,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite, loca
     tiles.setTileAt(tiles.getTileLocation(81, 4), assets.tile`Key4`)
     Don.sayText("Wake up to Reality, Nothing goes as planned in this acursed world", 5000, false)
     info.changeScoreBy(100)
+    music.baDing.play()
 })
 function IntroLetters () {
     for (let index = 0; index < 1; index++) {
@@ -61,6 +75,7 @@ function IntroLetters () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)), info.changeScoreBy(-10)
 Don.sayText("Haha You Suck at This Game", 3000, false)
+    music.powerDown.play()
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
