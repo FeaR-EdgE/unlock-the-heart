@@ -6,7 +6,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, l
 Don.sayText("Don't Touch That", 3000, false)
 })
 function Movement () {
-    Don.setVelocity(0, 50)
     if (controller.left.isPressed()) {
         Don.x += -1
     }
@@ -64,8 +63,11 @@ forever(function () {
     Movement()
 })
 forever(function () {
-    if (controller.up.isPressed()) {
-        Don.y += -40
-        pause(1100)
+    if (controller.up.isPressed() && (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile9`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile6`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile5`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile4`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`Sun`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile1`))))))))) {
+        pause(100)
+        Don.setVelocity(0, -100)
+        pause(375)
+    } else {
+        Don.setVelocity(0, 100)
     }
 })
