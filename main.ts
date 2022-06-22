@@ -13,6 +13,15 @@ function Movement () {
         Don.x += 1
     }
 }
+function Jump_Movement () {
+    if (controller.up.isPressed() && (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile9`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile6`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile5`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile4`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`Sun`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile1`))))))))) {
+        pause(100)
+        Don.setVelocity(0, -100)
+        pause(375)
+    } else {
+        Don.setVelocity(0, 100)
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
     for (let index = 0; index < 1; index++) {
         tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
@@ -60,14 +69,8 @@ forever(function () {
     IntroLetters()
 })
 forever(function () {
-    Movement()
+    Jump_Movement()
 })
 forever(function () {
-    if (controller.up.isPressed() && (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile9`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile6`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile5`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile4`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`Sun`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile1`))))))))) {
-        pause(100)
-        Don.setVelocity(0, -100)
-        pause(375)
-    } else {
-        Don.setVelocity(0, 100)
-    }
+    Movement()
 })
