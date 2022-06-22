@@ -74,3 +74,7 @@ forever(function () {
 forever(function () {
     Movement()
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite,location)
+    {info.changeScoreBy (100)
+    game.over(true)
+})
