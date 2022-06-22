@@ -31,7 +31,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, loca
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
     tiles.placeOnTile (Don, tiles.getTileLocation (0,8)),
     info.changeScoreBy (-10)
-Don.sayText("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 10000, false)
+Don.sayText("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6000, false)
     music.powerDown.play()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
