@@ -44,8 +44,8 @@ Don.sayText("Haha You Suck at This Game", 3000, false)
 })
 let DonAbility: TextSprite = null
 let IntroText: TextSprite = null
-let Don: Sprite = null
 let ScoreCount = 0
+let Don: Sprite = null
 let transitionToNextLevelThree = function (sprite:Sprite, location:tiles.Location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
     tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`Key3`)
@@ -66,15 +66,17 @@ tiles.placeOnTile(IntroText, tiles.getTileLocation(8, 5))
 tiles.placeOnTile(DonAbility, tiles.getTileLocation(8, 4))
 info.setScore(0)
 forever(function () {
+    Movement()
+})
+forever(function () {
     IntroLetters()
 })
 forever(function () {
     Jump_Movement()
 })
-forever(function () {
-    Movement()
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite,location)
-    {info.changeScoreBy (100)
-    game.over(true)
+scene.onOverlapTile (SpriteKind.Player, assets.tile`Key3`, function(sprite, location) {
+    tiles.placeOnTile (Don, tiles.getTileLocation (64,7))
+    tiles.setTileAt (tiles.getTileLocation(81,4), assets.tile`Key4`)
+    Don.sayText ("Wake up to Reality, Nothing goes as planned in this acursed world", 5000, false)
+    info.changeScoreBy (100)
 })
