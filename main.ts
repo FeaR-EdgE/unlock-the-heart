@@ -14,7 +14,7 @@ let Don: Sprite = null
 let ScoreCount = 0
 let transitionToNextLevelThree = function (sprite:Sprite, location:tiles.Location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
-    tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`myTile12`)
+    tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`myTile13`)
     Don.sayText("Avoid the White Explosives", 2000, false), info.changeScoreBy(100)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, transitionToNextLevelThree )
@@ -52,4 +52,8 @@ forever(function () {
             DonAbility.destroy()
         }
     }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)), info.changeScoreBy(-10)
+    Don.sayText("Haha You Suck at This Game", 3000, false)
 })
