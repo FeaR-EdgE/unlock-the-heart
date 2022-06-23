@@ -24,7 +24,7 @@ function Jump_Movement () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(94,2)) , info.changeScoreBy (100)
     tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
-    Don.sayText("The longer you live, the more you realize that in this world are pain, suffering, and futility", 7000, false)
+    Don.sayText("The longer you live, the more you realize that only pain, suffering, and futility exist", 8000, false)
     music.baDing.play()
 })
 function gameOver () {
@@ -95,4 +95,13 @@ forever(function () {
 })
 forever(function () {
     Jump_Movement()
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`degradingBrain`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(123, 6))
+    Don.sayText("Where Am I? Did I get Lost Again? Keep Moving Forward", 6000, false)
+    info.changeScoreBy(100)
+    music.baDing.play()
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite, location) {
+    
 })
