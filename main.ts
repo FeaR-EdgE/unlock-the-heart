@@ -6,6 +6,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite
     tiles.placeOnTile(Don, tiles.getTileLocation(162, 9))
     Bon = sprites.create(assets.image`Bon`, SpriteKind.NPC)
     tiles.placeOnTile(Bon, tiles.getTileLocation(164, 9))
+    Bon.sayText("Oh Your Finally Waking Up, Press A or B", 3000, false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -101,6 +102,60 @@ let ScoreCount = 0
 let Bon: Sprite = null
 let Don: Sprite = null
 OnStart()
+forever(function () {
+    if (controller.A.isPressed() || controller.B.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`))) {
+        Don.sayText("What Happened?", 3000, false)
+        pause(3000)
+        if (true) {
+            Bon.sayText("You were in a Bad Car Accident", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("When?", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("3 Years Ago", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("What that's Not True, That's Impossible", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("I've Been On Adventure looking for keys to a chamber", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("Must've Been a Dream about the People you Kidnapped", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("No, No, No", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("I was Saving Those Kids", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("The Cops Will Arrive Shortly to Arrest You", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("NO, NO, NO LET ME OUT OF HERE", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("Subdue Him", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            tiles.placeOnTile(Don, tiles.getTileLocation(167, 9))
+            pause(3000)
+        }
+    }
+})
 forever(function () {
     Movement()
 })
