@@ -2,9 +2,7 @@ namespace SpriteKind {
     export const Player2 = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)) , info.changeScoreBy (-10)
-Don.sayText("Don't Touch That", 3000, false)
-    music.powerDown.play()
+    teleportPlayerBackToSpawn("Don't Touch That", 3000)
 })
 function Movement () {
     if (controller.left.isPressed()) {
@@ -28,11 +26,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, loca
     game.over(true, effects.confetti)
     music.baDing.play()
 })
+function teleportPlayerBackToSpawn (deathMessage: string, timeOfDialoge: number) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)) , info.changeScoreBy (-10)
+music.powerDown.play()
+    Don.sayText(deathMessage, timeOfDialoge, false)
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
-    tiles.placeOnTile (Don, tiles.getTileLocation (0,8)),
-    info.changeScoreBy (-10)
-Don.sayText("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6000, false)
-    music.powerDown.play()
+    teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
@@ -73,9 +73,7 @@ function IntroLetters () {
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)), info.changeScoreBy(-10)
-Don.sayText("Haha You Suck at This Game", 3000, false)
-    music.powerDown.play()
+    teleportPlayerBackToSpawn("HaHa You Suck at This Game", 3000)
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
