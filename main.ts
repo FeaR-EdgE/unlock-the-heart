@@ -1,12 +1,15 @@
 namespace SpriteKind {
     export const Player2 = SpriteKind.create()
     export const NPC = SpriteKind.create()
+    export const NPC2 = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(162, 9))
     Bon = sprites.create(assets.image`Bon`, SpriteKind.NPC)
     tiles.placeOnTile(Bon, tiles.getTileLocation(164, 9))
     Bon.sayText("Oh Your Finally Waking Up, Press A or B", 3000, false)
+    Director = sprites.create(assets.image`Director`, SpriteKind.NPC2)
+    tiles.placeOnTile(Director, tiles.getTileLocation(174, 9))
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -99,6 +102,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, 
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
+let Director: Sprite = null
 let Bon: Sprite = null
 let Don: Sprite = null
 OnStart()
@@ -151,8 +155,23 @@ forever(function () {
             pause(3000)
         }
         if (true) {
-            tiles.placeOnTile(Don, tiles.getTileLocation(167, 9))
+            tiles.placeOnTile(Don, tiles.getTileLocation(171, 9))
             pause(3000)
+        }
+        if (true) {
+            Director.sayText("CUUUUUUUTTTTTTTT", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("Great Performance for the Players", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("I hope they Love this Show as Much as I did Making it", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("Thank you for Playing... Continue Forward for a Surprise", 3000, false)
         }
     }
 })
