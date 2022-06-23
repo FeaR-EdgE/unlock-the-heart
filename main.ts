@@ -24,7 +24,7 @@ function Jump_Movement () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(94,2)) , info.changeScoreBy (100)
     tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
-    Don.sayText("The longer you live, the more you realize that in this reality only pain, suffering and futility exist", 7000, false)
+    Don.sayText("The longer you live, the more you realize that in this world are pain, suffering, and futility", 7000, false)
     music.baDing.play()
 })
 function gameOver () {
