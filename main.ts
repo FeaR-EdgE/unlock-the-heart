@@ -1,6 +1,12 @@
 namespace SpriteKind {
     export const Player2 = SpriteKind.create()
+    export const NPC = SpriteKind.create()
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(162, 9))
+    Bon = sprites.create(assets.image`Bon`, SpriteKind.NPC)
+    tiles.placeOnTile(Bon, tiles.getTileLocation(164, 9))
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
 })
@@ -23,7 +29,7 @@ function Jump_Movement () {
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(94,2)) , info.changeScoreBy (100)
-    tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
+tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
     Don.sayText("The longer you live, the more you realize that only pain, suffering, and futility exist", 8000, false)
     music.baDing.play()
 })
@@ -36,6 +42,12 @@ function teleportPlayerBackToSpawn (deathMessage: string, timeOfDialoge: number)
 music.powerDown.play()
     Don.sayText(deathMessage, timeOfDialoge, false)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`degradingBrain`, function (sprite, location) {
+    tiles.placeOnTile(Don, tiles.getTileLocation(123, 6))
+    Don.sayText("Where Am I? Did I get Lost Again? Keep Moving Forward", 6000, false)
+    info.changeScoreBy(100)
+    music.baDing.play()
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
     teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
 })
@@ -52,7 +64,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Key2`, function (sprite, loca
     tiles.placeOnTile(Don, tiles.getTileLocation(32, 7))
     tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`Key3`)
     Don.sayText("Avoid White Explosives", 3000, false)
-    info.changeScoreBy (100)
+    info.changeScoreBy(100)
 })
 function OnStart () {
     ScoreCount = 0
@@ -86,6 +98,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, 
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
+let Bon: Sprite = null
 let Don: Sprite = null
 OnStart()
 forever(function () {
@@ -96,13 +109,4 @@ forever(function () {
 })
 forever(function () {
     Jump_Movement()
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`degradingBrain`, function (sprite, location) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(123, 6))
-    Don.sayText("Where Am I? Did I get Lost Again? Keep Moving Forward", 6000, false)
-    info.changeScoreBy(100)
-    music.baDing.play()
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite, location) {
-    
 })
