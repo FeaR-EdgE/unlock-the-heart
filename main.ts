@@ -22,17 +22,25 @@ function Jump_Movement () {
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key4`, function (sprite, location) {
-    info.changeScoreBy(100)
-    game.over(true, effects.confetti)
+    tiles.placeOnTile(Don, tiles.getTileLocation(94,2)) , info.changeScoreBy (100)
+    tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
+    Don.sayText("The longer you live, the more you realize that in this reality only pain, suffering and futility exist", 7000, false)
     music.baDing.play()
 })
+function gameOver () {
+    info.changeScoreBy(100)
+    game.over(true, effects.confetti)
+}
 function teleportPlayerBackToSpawn (deathMessage: string, timeOfDialoge: number) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)) , info.changeScoreBy (-10)
+    tiles.placeOnTile(Don, tiles.getTileLocation(0, 8)) , info.setScore (0)
 music.powerDown.play()
     Don.sayText(deathMessage, timeOfDialoge, false)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
     teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`PurpleDanger`, function (sprite, location) {
+    teleportPlayerBackToSpawn("Just Quit the Game... Your Trash", 7000)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key1`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(0, 13))
