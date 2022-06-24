@@ -16,9 +16,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (s
     tiles.placeOnTile(Don, tiles.getTileLocation(206, 7))
     Don.sayText("RUN FROM THE COPS", 5000, false)
     theOps = [sprites.create(assets.image`anOp`, SpriteKind.Cops)]
-    theOpsChase(201)
     theOpsChase(202)
-    theOpsChase(203)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -101,7 +99,7 @@ function OnStart () {
 function theOpsChase (X: number) {
     for (let index = 0; index <= theOps.length - 1; index++) {
         tiles.placeOnTile(theOps[index], tiles.getTileLocation(X, 7))
-        theOps[index].follow(Don, 60)
+        theOps[index].follow(Don, 55)
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite, location) {

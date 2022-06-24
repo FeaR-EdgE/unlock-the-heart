@@ -108,14 +108,14 @@ namespace myImages {
 . . . . . d d d d d . . . . . . 
 . . . . . d d 3 d d . . . . . . 
 . . . . . . . d . . . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . f 1 f f 1 . . . . . . 
-. . . . f f 1 f f 1 f . . . . . 
-. . . . f f f f f f f . . . . . 
-. . . . f f f f f f f . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . f . . . f . . . . . . 
-. . . . . f e . . f e . . . . . 
+. . . . . a a a a a . . . . . . 
+. . . . . a 1 a a 1 . . . . . . 
+. . . . a a 1 a a 1 a . . . . . 
+. . . . a a a a a a a . . . . . 
+. . . . a a a a a a a . . . . . 
+. . . . . a a a a a . . . . . . 
+. . . . . a . . . a . . . . . . 
+. . . . . a f . . a f . . . . . 
 `;
         }
         return null;
