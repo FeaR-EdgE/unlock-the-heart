@@ -15,9 +15,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(205, 7))
     Don.sayText("RUN FROM THE COPS", 5000, false)
-    theOp = sprites.create(assets.image`anOp`, SpriteKind.Cops)
-    tiles.placeOnTile(theOp, tiles.getTileLocation(201, 7))
-    theOp.follow(Don, 60)
+    theOps = [
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops),
+    sprites.create(assets.image`anOp`, SpriteKind.Cops)
+    ]
+    theOpsChase()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -96,6 +105,12 @@ function OnStart () {
     tiles.placeOnTile(IntroText, tiles.getTileLocation(8, 5))
     info.setScore(0)
 }
+function theOpsChase () {
+    for (let index = 0; index <= theOps.length - 1; index++) {
+        tiles.placeOnTile(theOps[index], tiles.getTileLocation(201, 7))
+        theOps[index].follow(Don, 60)
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Key3`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(64, 7))
     tiles.setTileAt(tiles.getTileLocation(81, 4), assets.tile`Key4`)
@@ -116,7 +131,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, 
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
-let theOp: Sprite = null
+let theOps: Sprite[] = []
 let Director: Sprite = null
 let Bon: Sprite = null
 let Don: Sprite = null
