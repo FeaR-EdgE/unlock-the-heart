@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const Player2 = SpriteKind.create()
     export const NPC = SpriteKind.create()
     export const NPC2 = SpriteKind.create()
+    export const Cops = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite, location) {
     tiles.placeOnTile(Don, tiles.getTileLocation(162, 9))
@@ -12,8 +13,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite
     tiles.placeOnTile(Director, tiles.getTileLocation(174, 9))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
-    tiles.placeOnTile(Don, tiles.getTileLocation(201, 7))
+    tiles.placeOnTile(Don, tiles.getTileLocation(205, 7))
     Don.sayText("RUN FROM THE COPS", 5000, false)
+    theOp = sprites.create(assets.image`anOp`, SpriteKind.Cops)
+    tiles.placeOnTile(theOp, tiles.getTileLocation(201, 7))
+    theOp.follow(Don, 60)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -58,6 +62,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`degradingBrain`, function (sp
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
     teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Cops, function (sprite, otherSprite) {
+    gameOver()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileGrass2, function (sprite, location) {
     gameOver()
@@ -109,6 +116,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, 
 })
 let IntroText: TextSprite = null
 let ScoreCount = 0
+let theOp: Sprite = null
 let Director: Sprite = null
 let Bon: Sprite = null
 let Don: Sprite = null

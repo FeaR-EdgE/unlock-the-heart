@@ -24,6 +24,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Director"
     },
+    "image6": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgMjcAIDYDQCA2N0NWIiPiIDY392IiA/wgNjdDYiIBQCA2d0NiIgPAADZ3wCIiI+IAAkAAAgAAPAAAAAACAAAAAAAAAANAAAAAAAA8A0AAAAAAADwAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "anOp"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
