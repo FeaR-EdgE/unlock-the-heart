@@ -11,6 +11,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite
     Director = sprites.create(assets.image`Director`, SpriteKind.NPC2)
     tiles.placeOnTile(Director, tiles.getTileLocation(174, 9))
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
+	
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
 })
