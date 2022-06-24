@@ -119,7 +119,7 @@ forever(function () {
     Jump_Movement()
 })
 forever(function () {
-    if (controller.A.isPressed() || controller.B.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`))) {
+    if (controller.A.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`)) || controller.B.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`))) {
         Don.sayText("What Happened?", 3000, false)
         pause(3000)
         if (true) {
