@@ -40,6 +40,75 @@ tiles.setTileAt(tiles.getTileLocation(112, 10), assets.tile`degradingBrain`)
     Don.sayText("The longer you live, the more you realize that only pain, suffering, and futility exist", 8000, false)
     music.baDing.play()
 })
+function longDialouge () {
+    if (controller.A.isPressed() || controller.B.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`))) {
+        Don.sayText("What Happened?", 3000, false)
+        pause(3000)
+        if (true) {
+            Bon.sayText("You were in a Bad Car Accident", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("When?", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("3 Years Ago", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("What that's Not True, That's Impossible", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("I've Been On Adventure looking for keys to a chamber", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("Must've Been a Dream about the People you Kidnapped", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("No, No, No", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("I was Saving Those Kids", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("The Cops Will Arrive Shortly to Arrest You", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Don.sayText("NO, NO, NO LET ME OUT OF HERE", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Bon.sayText("Subdue Him", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            tiles.placeOnTile(Don, tiles.getTileLocation(171, 9))
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("CUUUUUUUTTTTTTTT", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("Great Performance for the Players", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("I hope they Love this Show as Much as I did Making it", 3000, false)
+            pause(3000)
+        }
+        if (true) {
+            Director.sayText("Thank you for Playing... Continue Forward for a Surprise", 3000, false)
+        }
+    }
+}
 function gameOver () {
     info.changeScoreBy(100)
     game.over(true, effects.confetti)
@@ -110,75 +179,6 @@ let Bon: Sprite = null
 let Don: Sprite = null
 OnStart()
 forever(function () {
-    if (controller.A.isPressed() || controller.B.isPressed() && (Don.tileKindAt(TileDirection.Center, assets.tile`bedHospital`) || Don.tileKindAt(TileDirection.Center, assets.tile`tableHospital`))) {
-        Don.sayText("What Happened?", 3000, false)
-        pause(3000)
-        if (true) {
-            Bon.sayText("You were in a Bad Car Accident", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("When?", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Bon.sayText("3 Years Ago", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("What that's Not True, That's Impossible", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("I've Been On Adventure looking for keys to a chamber", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Bon.sayText("Must've Been a Dream about the People you Kidnapped", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("No, No, No", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("I was Saving Those Kids", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Bon.sayText("The Cops Will Arrive Shortly to Arrest You", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Don.sayText("NO, NO, NO LET ME OUT OF HERE", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Bon.sayText("Subdue Him", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            tiles.placeOnTile(Don, tiles.getTileLocation(171, 9))
-            pause(3000)
-        }
-        if (true) {
-            Director.sayText("CUUUUUUUTTTTTTTT", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Director.sayText("Great Performance for the Players", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Director.sayText("I hope they Love this Show as Much as I did Making it", 3000, false)
-            pause(3000)
-        }
-        if (true) {
-            Director.sayText("Thank you for Playing... Continue Forward for a Surprise", 3000, false)
-        }
-    }
-})
-forever(function () {
     Movement()
 })
 forever(function () {
@@ -186,4 +186,7 @@ forever(function () {
 })
 forever(function () {
     Jump_Movement()
+})
+forever(function () {
+    longDialouge()
 })
