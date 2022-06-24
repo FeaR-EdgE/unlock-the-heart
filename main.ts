@@ -85,6 +85,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Key2`, function (sprite, loca
     tiles.setTileAt(tiles.getTileLocation(57, 7), assets.tile`Key3`)
     Don.sayText("Avoid White Explosives", 3000, false)
     info.changeScoreBy(100)
+    music.baDing.play()
 })
 function OnStart () {
     ScoreCount = 0
