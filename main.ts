@@ -65,7 +65,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite
     teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cops, function (sprite, otherSprite) {
-    gameOver()
+    game.over(false)
+    music.pewPew.playUntilDone()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileGrass2, function (sprite, location) {
     gameOver()
