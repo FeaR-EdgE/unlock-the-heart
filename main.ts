@@ -12,7 +12,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`toHospital`, function (sprite
     tiles.placeOnTile(Director, tiles.getTileLocation(174, 9))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
-	
+    tiles.placeOnTile(Don, tiles.getTileLocation(201, 7))
+    Don.sayText("RUN FROM THE COPS", 5000, false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
     teleportPlayerBackToSpawn("Don't Touch That", 3000)
@@ -26,7 +27,7 @@ function Movement () {
     }
 }
 function Jump_Movement () {
-    if (controller.up.isPressed() && (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile9`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile6`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile5`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile4`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`Sun`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile1`))))))))) {
+    if (controller.up.isPressed() && (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile9`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile6`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile5`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile4`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`Sun`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || (Don.tileKindAt(TileDirection.Bottom, assets.tile`myTile1`) || (Don.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || Don.tileKindAt(TileDirection.Center, sprites.castle.tileGrass2))))))))))) {
         pause(100)
         Don.setVelocity(0, -100)
         pause(375)
@@ -57,6 +58,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`degradingBrain`, function (sp
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PinkDanger`, function (sprite, location) {
     teleportPlayerBackToSpawn("The Only Mystery Scooby-Doo Can't Solve is Why You Suck at this Game", 6005)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileGrass2, function (sprite, location) {
+    gameOver()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`PurpleDanger`, function (sprite, location) {
     teleportPlayerBackToSpawn("Just Quit the Game... Your Trash", 7000)
